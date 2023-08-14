@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meu primeiro programa</title>
+    <style>
+      html {
+        font-family: monospace;
+        color: white;
+      }
+
+      body {
+        background-color: black;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 5em;
+      }
+
+      p {
+        font-size: 2em;
+      }
+
+      span#mundo:hover::after {
+        content: "🌏";
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Olá, <span id="mundo">mundo</span>!</h1>
+    <p>Já me livrei da maldição</p>
+  </body>
+  <script>
+    window.alert("Minha primeira mensagem");
+    window.confirm("Está gostando do JS?");
+    name = window.prompt("Qual é o seu nome? ");
+  </script>
+</html>
