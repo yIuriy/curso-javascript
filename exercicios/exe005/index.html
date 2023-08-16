@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Primeiros passos com DOM</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <style>
+      body {
+        font-size: 1.5em;
+        text-align: center;
+        font-family: monospace;
+        background-color: black;
+        color: white;
+      }
+
+      p {
+        padding: 10px;
+      }
+
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+      }
+
+      div#container {
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      div#mode {
+        display: flex;
+        background-color: white;
+        width: 150px;
+        border-radius: 5px;
+        height: 100px;
+        color: black;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="tit">Iniciando estudos com DOM</h1>
+    <p>Teste de DarkMode</p>
+    <div id="container">
+      <div id="mode" onclick="clicou()">
+        LightMode<span class="material-symbols-outlined"> light_mode </span>
+      </div>
+    </div>
+  </body>
+  <script>
+    var iconLm = '<span class="material-symbols-outlined">light_mode</span>';
+    var iconDm = '<span class="material-symbols-outlined">dark_mode</span>';
+    var corpo = window.document.body;
+    var button = window.document.getElementById("mode");
+    
+    function clicou() {
+      if (corpo.style.background == "black") {
+        corpo.style.background = "white";
+        corpo.style.color = 'black';
+        button.style.background = 'black';
+        button.style.color = 'white';
+        button.innerHTML = `DarkMode${iconLm}`;
+      } else {
+        corpo.style.background = "black";
+        corpo.style.color = 'white';
+        button.style.background = "white"
+        button.style.color = 'black';
+        button.innerHTML = `LightMode${iconDm}`;
+      }
+    }
+  </script>
+</html>
