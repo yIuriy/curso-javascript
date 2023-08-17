@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos DOM</title>
+    <style>
+        body{
+            justify-content: center;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: lightblue;
+            text-align: center;
+        }
+
+div#container{
+    display: flex;
+    justify-content: center;
+}
+
+        div#area{
+            background-color: lightgreen;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            border-radius: 10px;
+        }
+            
+    </style>
+</head>
+<body>
+    <h1>Teste de Eventos DOM</h1>
+    <div id="container">
+        <div id="area">Interaja</div>
+    </div>
+</body>
+<script>
+
+area.addEventListener('click', clicar)
+area.addEventListener('mouseenter', entrar)
+area.addEventListener('mouseout', sair)
+   function clicar(){
+    {globalThis.area = window.document.getElementById('area')}
+        area.innerText = 'Clicou!'
+        area.style.background = 'lightcyan'
+        area.style.color = 'black'
+   }
+
+   function entrar(){
+        area.innerText = 'Entrou!'
+        area.style.background = 'purple'
+        area.style.color = 'white'
+   }
+
+   function sair(){
+        area.innerText = 'Saiu!'
+        area.style.background = 'lightpink'
+        area.style.color = 'black'
+   }
+</script>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Somando Números</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: monospace;
+        background-color: #257d51a9;
+      }
+
+      body > h1 {
+        font-size: 3em;
+        display: block;
+      }
+
+      div#container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .numeros[type="number"] {
+        text-align: center;
+        display: inline-block;
+        border-radius: 10px;
+        border: none;
+        width: 100px;
+        height: 50px;
+        background-color: black;
+        color: white;
+        font-size: 2em;
+        margin: 5px;
+      }
+
+      span {
+        display: inline-block;
+        font-size: 2em;
+      }
+
+      div#res {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        border: none;
+        width: 100px;
+        height: 50px;
+        background-color: black;
+        color: white;
+        font-size: 1.5em;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Somando Números</h1>
+    <div id="container">
+      <input
+        type="number"
+        name="txtn1"
+        id="txtn1"
+        aria-label="1º número a inserir"
+        class="numeros"
+      />
+      <span>+</span>
+      <input
+        type="number"
+        name="txtn2"
+        id="txtn2"
+        aria-label="2º número a inserir"
+        class="numeros"
+      />
+      <span>=</span>
+      <div id="res" onclick="somar()" >Somar</div>      <br />
+    </div>
+  </body>
+  <script>
+    function somar() {
+      var tn1 = window.document.getElementById("txtn1");
+      var tn2 = window.document.getElementById("txtn2");
+      var res = window.document.getElementById("res");
+      var n1 = Number.parseInt(tn1.value);
+      var n2 = Number.parseInt(tn2.value);
+      var soma = n1 + n2;
+      res.innerHTML = soma;
+    }
+  </script>
+</html>
