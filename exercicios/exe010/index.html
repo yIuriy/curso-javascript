@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Condições em JS</title>
+    <style>
+      body {
+        font-family: monospace;
+        background-color: #137a47a9;
+      }
+
+      body > h1 {
+        text-align: center;
+        font-size: 3em;
+        display: block;
+      }
+
+      div#container {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+      }
+
+      div#container > span,
+      label {
+        font-size: 1.5em;
+      }
+
+      .numeros[type="number"] {
+        text-align: center;
+        display: inline-block;
+        border-radius: 10px;
+        border: none;
+        width: 100px;
+        height: 40px;
+        background-color: rgb(255, 255, 255);
+        color: black;
+        font-size: 2em;
+        margin: 5px;
+      }
+
+      div#res{
+        font-size: 1.5em;
+        margin-top: 15px;
+      }
+
+      span#red{
+        color: rgba(255, 0, 0, 0.637);
+      }
+
+      span#green{
+        color: green;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>Sistema de Multas</h1>
+    <div id="container">
+      <label for="itxtvel">Velocidade do carro: </label>
+      <input type="number" name="txtvel" id="itxtvel" class="numeros" oninput="calcular()"/><span
+        >Km/h</span
+      >
+      
+    </div>
+    <div id="res"></div>
+   
+  </body>
+  <script>
+    function calcular() {
+      var txtvel = document.getElementById("itxtvel");
+      var res = document.getElementById("res");
+      var vel = Number(txtvel.value);
+      res.innerHTML = `<p>Sua velocidade atual é de<strong> ${vel}Km/h</strong></p>`;
+     if(vel >= 75 && vel < 1000){
+        res.innerHTML += `<p>Você está <span id="red">acima</span> do limite de velocidade permitido nessa via, logo será <strong>MULTADO</strong>!</p>`
+     }
+
+     else if(vel >= 1000){
+        res.innerHTML += `<p>Você está em um carro ou em um caça?</p>`
+     }
+     
+     else{
+        res.innerHTML += `<p>Você está <span id="green">dentro</span> do limite de velocidade permitido, continue assim!</p>`
+     }
+    }
+  </script>
+</html>

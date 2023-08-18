@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+    <title>Você pode dirigir?</title>
+  </head>
+  <body>
+    <h1>Você pode dirigir?</h1>
+      <label for="itxtidade" class="txt">Sua idade: </label>
+      <input type="number" name="txtidade" id="itxtidade" required min="0"/>
+    <p class="txt paragrafos">Você tem habilitação?</p>
+    <input
+      type="radio"
+      value="sim"
+      name="hab"
+      id="txtsim"
+      checked
+      onclick="verificarConfirmacao()"
+    />
+    <label for="txtsim" class="txt">Sim</label>
+    <br />
+    <input
+      type="radio"
+      value="nao"
+      name="hab"
+      id="txtnao"
+      onclick="verificarConfirmacao()"
+    />
+    <label for="txtnao" class="txt">Não</label>
+    <input type="button" value="Enviar" onclick="dirigir()">
+    <div class="container">
+        <div id="res"></div>
+    </div>
+  </body>
+</html>
