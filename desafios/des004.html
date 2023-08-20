@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafio antes e depois</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #137a47a9;
+      }
+      body > h1 {
+        text-align: center;
+        font-size: 3em;
+        display: block;
+      }
+      div#container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      input[type="button"] {
+        height: 40px;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Calculando o Troco</h1>
+    <div id="container">
+      <input type="button" value="Comprar produto" id="btn" />
+    </div>
+  </body>
+  <script>
+    var btn = window.document.getElementById("btn");
+    btn.addEventListener("click", comprar);
+    function comprar() {
+      var produto = window.prompt("Qual produto você está comprando?");
+      var preco = Number(
+        window.prompt(`Quanto custa o ${produto} que você está comprando?`)
+      );
+      var pagamento = Number(
+        window.prompt(`Qual foi o valor que você deu para comprar ${produto}`)
+      );
+      var fPreco = preco.toLocaleString("pt-br", {
+        style: "currency",
+        currency: "BRL",
+      });
+      var fPagamento = pagamento.toLocaleString("pt-br", {
+        style: "currency",
+        currency: "BRL",
+      });
+
+      var fTroco = (pagamento - preco).toLocaleString("pt-br", {
+        style: "currency",
+        currency: "BRL",
+      });
+
+      window.alert(`Você comprou ${produto} que custou ${fPreco}. 
+Deu ${fPagamento} em dinheiro e vai receber ${fTroco} de troco.
+Volte sempre!`);
+    }
+  </script>
+</html>

@@ -18,7 +18,7 @@ function dirigir() {
   var res = document.getElementById("res");
 
   if (idade >= 18 && habilitado) {
-    res.innerHTML = `<p>Você tem ${idade} anos idade <br> Possue carteira de motorista <br> Logo você <span id="green">pode</span> dirigir.</p>`;
+    res.innerHTML = `<p>Você tem ${idade} anos idade <br> Possui carteira de motorista <br> Logo você <span id="green">pode</span> dirigir.</p>`;
   } else if (idade > 18 && !habilitado) {
     res.innerHTML = `<p>Você tem ${idade} anos de idade <br> <span id="red">Não</span> possui carteira de motorista <br> Logo <span id="red">não</span> pode dirigir.</p>`;
   } else {

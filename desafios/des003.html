@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafio antes e depois</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #137a47a9;
+      }
+      body > h1 {
+        text-align: center;
+        font-size: 3em;
+        display: block;
+      }
+      div#container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      input[type="button"] {
+        height: 40px;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Antes e depois</h1>
+    <div id="container">
+      <input type="button" value="Antecessor e Sucessor" id="btn" />
+    </div>
+  </body>
+  <script>
+    var btn = window.document.getElementById("btn");
+    btn.addEventListener("click", antSuc);
+    function antSuc() {
+      var n = Number(window.prompt("Digite um número inteiro qualquer:"));
+      var ant = n - 1;
+      var suc = n + 1;
+      window.alert(`Antes de ${n}, temos o número ${ant} 
+Depois de ${n}, temos o número ${suc}`);
+    }
+  </script>
+</html>
