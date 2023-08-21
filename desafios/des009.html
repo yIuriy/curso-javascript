@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>Reajustar Salário</title>
     <style>
       body {
         font-family: Arial, Helvetica, sans-serif;
@@ -45,7 +45,9 @@
   </head>
   <body>
     <h1>Reajuste Salarial</h1>
-    <div id="container"><input type="button" value="Reajustar Salário" id="btn" /></div>
+    <div id="container">
+      <input type="button" value="Reajustar Salário" id="btn" />
+    </div>
 
     <div id="container2">
       <div id="txt"><p>Clique no botão acima para iniciar</p></div>
@@ -53,7 +55,38 @@
   </body>
   <script>
     var btn = window.document.getElementById("btn");
-    btn.addEventListener("click", converterMoeda);
+    btn.addEventListener("click", reajustar);
     var txt = window.document.querySelector("div#txt");
+    function reajustar() {
+      var nome = window.prompt("Qual é o nome do funcionário?");
+      var salarioAntigo = Number(window.prompt(`Qual é o salário de ${nome}?`));
+      var fsalarioAntigo = salarioAntigo.toLocaleString(
+        "pt-br",
+        {style: "currency",
+        currency: "BRL"}
+      );
+      var porcentagem = Number(
+        window.prompt(
+          `O salário de ${nome} vai ser reajustado em que porcentagem? `
+        )
+      );
+      var porcentagemDecimal = porcentagem / 100;
+      var aumento = salarioAntigo * porcentagemDecimal;
+
+      var faumento = aumento.toLocaleString(
+        "pt-br",
+        {style: "currency",
+        currency: "BRL"}
+      );
+      var salarioNovo = (aumento + salarioAntigo).toLocaleString(
+        "pt-br",
+        {style: "currency",
+        currency: "BRL"}
+      );
+      txt.innerHTML = `<h2>${nome} recebeu um aumento salarial!</h2>`;
+      txt.innerHTML += `<p>O salário era de ${fsalarioAntigo}</p>`;
+      txt.innerHTML += `<p>Com um aumento de ${porcentagem}%, o salário vai aumentar ${faumento} no próximo mês.</p>`;
+      txt.innerHTML += `<p>E a partir daí, ${nome} vai passar a ganhar ${salarioNovo}</p>`;
+    }
   </script>
 </html>
