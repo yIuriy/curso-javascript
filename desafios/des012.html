@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preço mudou</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #137a47a9;
+      }
+      body > h1 {
+        text-align: center;
+        font-size: 2.5em;
+        display: block;
+      }
+      div#container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      input[type="button"] {
+        font-size: 1.3em;
+        width: 200px;
+        height: 40px;
+        margin: 5px;
+      }
+
+      div#container2 {
+        display: flex;
+        text-align: left;
+        align-items: center;
+        justify-content: center;
+      }
+
+      div#container2 > div#txt {
+        padding: 5px;
+        width: 450px;
+        border-radius: 10px;
+        background-color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Preço mudou</h1>
+    <div id="container">
+      <input type="button" value="Verificar" id="btn" />
+    </div>
+
+    <div id="container2">
+      <div id="txt">
+        <p>Clique no botão acima para analisar a mudança de preço.</p>
+      </div>
+    </div>
+  </body>
+  <script>
+    var btn = window.document.getElementById("btn");
+    btn.addEventListener("click", precoMudou);
+    var txt = window.document.querySelector("div#txt");
+
+    function precoMudou() {
+      var precoAnterior = Number(
+        window.prompt("Qual era o preço anterior do produto?")
+      );
+
+      var precoAtual = Number(window.prompt("Qual é o preço atual do produto"));
+
+      var fprecoAnterior = precoAnterior.toLocaleString("pt-br", {
+        style: "currency",
+        currency: "BRL",
+      });
+
+      var fprecoAtual = precoAtual.toLocaleString("pt-br", {
+        style: "currency",
+        currency: "BRL",
+      });
+
+      txt.innerHTML = `<h2>Analisando os valores informados</h2>`;
+
+      txt.innerHTML += `<p>O produto custava ${fprecoAnterior} e agora custa ${fprecoAtual}.</p>`;
+
+      if (precoAnterior < precoAtual) {
+        txt.innerHTML += `<p>Hoje o produto está mais caro.</p>`;
+
+        var subiu = precoAtual - precoAnterior;
+
+        var fsubiu = subiu.toLocaleString("pt-br", {
+          style: "currency",
+          currency: "BRL",
+        });
+
+        var porcentagemSubiu = ((subiu * 100) / precoAnterior).toFixed(2);
+
+        txt.innerHTML += `<p>O preço subiu ${fsubiu} em relação ao preço anterior.</p>`;
+
+        txt.innerHTML += `<p>Uma variação de ${porcentagemSubiu}% pra cima em relação ao preço anterior.</p>`;
+      } else {
+        txt.innerHTML += `<p>Hoje o produto está mais barato.</p>`;
+
+        var caiu = precoAnterior - precoAtual;
+
+        var fcaiu = caiu.toLocaleString("pt-br", {
+          style: "currency",
+          currency: "BRL",
+        });
+
+        var porcentagemCaiu = ((caiu * 100) / precoAnterior).toFixed(2);
+
+        txt.innerHTML += `O preço caiu ${fcaiu} em relação ao preço anterior.`;
+
+        txt.innerHTML += `<p>Uma variação de ${porcentagemCaiu}% pra baixo em relação ao preço anterior.</p>`;
+      }
+    }
+  </script>
+</html>
