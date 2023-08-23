@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Situação do aluno</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #137a47a9;
+      }
+      body > h1 {
+        text-align: center;
+        font-size: 2.5em;
+        display: block;
+      }
+      div#container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      input[type="button"] {
+        font-size: 1.3em;
+        width: 200px;
+        height: 40px;
+        margin: 5px;
+      }
+
+      div#container2 {
+        display: flex;
+        text-align: left;
+        align-items: center;
+        justify-content: center;
+      }
+
+      div#container2 > div#txt {
+        padding: 5px;
+        width: 450px;
+        border-radius: 10px;
+        background-color: aliceblue;
+      }
+
+      span#red {
+        background-color: rgba(255, 0, 0, 0.568);
+      }
+
+      span#yellow {
+        background-color: rgba(255, 255, 0, 0.5);
+      }
+
+      span#green {
+        background-color: rgba(0, 128, 0, 0.479);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Situação do aluno</h1>
+    <div id="container">
+      <input type="button" value="Entrar com notas" id="btn" />
+    </div>
+
+    <div id="container2">
+      <div id="txt">
+        <p>Clique no botão acima para informar as notas do aluno.</p>
+      </div>
+    </div>
+  </body>
+  <script>
+    var btn = window.document.getElementById("btn");
+    btn.addEventListener("click", situacaoAluno);
+    var txt = window.document.querySelector("div#txt");
+
+    function situacaoAluno() {
+      var nome = window.prompt("Qual é o nome do aluno?");
+
+      var nota1 = Number(window.prompt(`Primeira nota de ${nome}:`));
+
+      var fnota1 = nota1.toLocaleString("pt-br");
+
+      var nota2 = Number(window.prompt(`Segunda nota de ${nome}:`));
+
+      var fnota2 = nota2.toLocaleString("pt-br");
+
+      txt.innerHTML = `<h2>Analisando a situação de ${nome}</h2>`;
+
+      var media = (nota1 + nota2) / 2;
+
+      var fmedia = media.toLocaleString("pt-br");
+
+      txt.innerHTML += `<p>Com notas ${fnota1} e ${fnota2} a <strong>média é ${fmedia}</strong></p>`;
+
+      if (media < 3) {
+        txt.innerHTML += `<p>Com média abaixo de 3.0, o aluno está <strong><span id="red">REPROVADO</span></strong></p>`;
+      } else if (media >= 3 && media < 6) {
+        txt.innerHTML += `<p>Com média entre 3.0 e 6.0, o aluno está em <strong><span id="yellow">RECUPERAÇÃO</span></strong></p>`;
+      } else {
+        txt.innerHTML += `<p>Com média acima de 6.0, o aluno está <strong><span id="green">APROVADO</span></strong></p>`;
+      }
+    }
+  </script>
+</html>
