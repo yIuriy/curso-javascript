@@ -7,8 +7,6 @@ function tabuada() {
   res.innerHTML = "";
   var valor = Number(txtvalor.value);
   var limite = Number(txtlimite.value);
-  console.log("Working!");
-
   res.innerHTML += `<th>Tabuada do ${valor}</th>`;
   if (limite == "" || limite == null) {
     limite = 10;
