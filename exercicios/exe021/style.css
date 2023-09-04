@@ -1,0 +1,57 @@
+@charset "UTF-8";
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #137a47a9;
+}
+body > h1 {
+  text-align: center;
+  font-size: 2.5em;
+  display: block;
+}
+div#container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+label {
+  background-color: white;
+  border-radius: 5px;
+  width: 170px;
+  padding: 5px;
+  margin: 5px;
+}
+
+input[type="number"] {
+  width: 120px;
+  height: 24px;
+  border-radius: 5px;
+  border-style: none;
+  border: 1px solid black;
+}
+
+input[type="button"] {
+  font-size: 1.3em;
+  width: 100px;
+  height: 40px;
+  margin: 5px;
+}
+
+div#container2 {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+}
+
+div#container2 > div#txt {
+  padding: 5px;
+  width: 450px;
+  border-radius: 10px;
+  background-color: aliceblue;
+}
+
+div#container2 > div#txt > p {
+  padding-left: 10px;
+}
