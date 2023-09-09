@@ -65,9 +65,9 @@
     var txt = window.document.querySelector("div#txt");
 
     function calcularBhaskara() {
-      var a = Number(window.prompt("Qual é o valor de a?"));
-      var b = Number(window.prompt("Qual é o valor de b?"));
-      var c = Number(window.prompt("Qual é o valor de c?"));
+      const a = Number(window.prompt("Qual é o valor de a?"));
+      const b = Number(window.prompt("Qual é o valor de b?"));
+      const c = Number(window.prompt("Qual é o valor de c?"));
       var delta = (b**2) - 4 * a * c
       console.log(delta)
       txt.innerHTML = `<h3>Resolvendo Bhaskara</h3>`
